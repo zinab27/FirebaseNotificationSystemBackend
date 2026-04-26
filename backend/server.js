@@ -8,6 +8,8 @@ admin.initializeApp({
 });
 
 const app = express();
+
+app.options("*", cors()); // Handle preflight requests
 app.use(cors());
 app.use(express.json()); // Parse JSON request bodies
 
