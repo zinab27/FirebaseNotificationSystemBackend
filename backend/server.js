@@ -2,20 +2,23 @@ const express = require("express"); // Express framework for server
 const cors = require("cors"); // CORS middleware to allow cross-origin requests
 const admin = require("firebase-admin"); // Firebase Admin SDK
 
-
 admin.initializeApp({
   credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_KEY)),
 });
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "https://notification-5ac8e.web.app", // real domain
-    methods: ["POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
-  }),
-);
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://notification-5ac8e.web.app",
+  );
+  res.header("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  if (req.method === "OPTIONS") return res.sendStatus(200);
+  next();
+});
+
 app.options("*", cors()); // Handle preflight requests
 
 app.use(express.json()); // Parse JSON request bodies
