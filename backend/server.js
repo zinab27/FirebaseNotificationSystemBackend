@@ -2,10 +2,9 @@ const express = require("express"); // Express framework for server
 const cors = require("cors"); // CORS middleware to allow cross-origin requests
 const admin = require("firebase-admin"); // Firebase Admin SDK
 
-const serviceAccount = require("./serviceAccountKey.json"); // Load service account key for Firebase Admin SDK
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount), // Initialize with service account
+  credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_KEY)),
 });
 
 const app = express();
