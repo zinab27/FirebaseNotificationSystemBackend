@@ -9,8 +9,15 @@ admin.initializeApp({
 
 const app = express();
 
+app.use(
+  cors({
+    origin: "https://notification-5ac8e.web.app", // real domain
+    methods: ["POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+  }),
+);
 app.options("*", cors()); // Handle preflight requests
-app.use(cors());
+
 app.use(express.json()); // Parse JSON request bodies
 
 // Subscribe endpoint
