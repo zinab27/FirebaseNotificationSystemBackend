@@ -1,7 +1,26 @@
 {
     "dependencies": {
-        "express": "^4.18.2",
-        "cors": "^2.8.5",
-        "firebase-admin": "^12.0.0"
-    }
+        "cors": "^2.8.6",
+        "express": "^4.22.1",
+        "firebase-admin": "^12.7.0"
+    },
+    "name": "firebasenotificationsystembackend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zinab27/FirebaseNotificationSystemBackend.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/zinab27/FirebaseNotificationSystemBackend/issues"
+    },
+    "homepage": "https://github.com/zinab27/FirebaseNotificationSystemBackend#readme"
 }
